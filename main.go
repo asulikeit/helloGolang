@@ -33,28 +33,28 @@ func main() {
 	r.Run("localhost:9081")
 }
 
-func listUser(c *gin.COntext) {
+func listUser(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, users)
 }
 
-func createUser(c *gin.COntext) {
+func createUser(c *gin.Context) {
 	var objs = users
 	var newObj user
-	if err := c.BindJSON(@newObj); err != nil {
+	if err := c.BindJSON(&newObj); err != nil {
 		return
 	}
 	objs = append(objs, newObj)
 	c.IndentedJSON(http.StatusOK, newObj)
 }
 
-func listNotice(c *gin.COntext) {
-	c.IndentedJSON(http.StatusOK, gin.H({"items, notices"}))
+func listNotice(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, gin.H{"items": notices})
 }
 
-unc createNotice(c *gin.COntext) {
+unc createNotice(c *gin.Context) {
 	var objs = notices
 	var newObj notice
-	if err := c.BindJSON(@newObj); err != nil {
+	if err := c.BindJSON(&newObj); err != nil {
 		return
 	}
 	objs = append(objs, newObj)

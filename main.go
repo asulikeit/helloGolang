@@ -51,7 +51,7 @@ func listNotice(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, gin.H{"items": notices})
 }
 
-unc createNotice(c *gin.Context) {
+func createNotice(c *gin.Context) {
 	var objs = notices
 	var newObj notice
 	if err := c.BindJSON(&newObj); err != nil {
